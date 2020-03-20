@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Utilities;
 
 class ControllerUtility {
     public static function decodeAnswerJsonFile($questions)

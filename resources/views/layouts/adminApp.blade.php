@@ -44,16 +44,13 @@
                               <a class="nav-link" href="{{ route('subject.index') }}" role="tab" aria-controls="subject" aria-selected="false">Subject</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.deactivated.index') }}" role="tab" aria-controls="deactivated" aria-selected="false">Deactivated Users</a>
+                                <a class="nav-link" href="{{ route('deactivated.user.index') }}" role="tab" aria-controls="deactivated" aria-selected="false">Deactivated Users</a>
                             </li>
                           </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.create') }}">{{ __('Add User') }}</a>
-                                </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">{{ __('Logout') }}</a>

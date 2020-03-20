@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use App\Question;
+use App\Utilities\ControllerUtility;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -53,26 +54,11 @@ class SubjectController extends Controller
     {
         $questions = Question::whereSubjectId($subject->id)->with(['answer', 'explanation'])
         ->orderby('body', 'asc')->paginate(25);
-        $questions = $this->decodeAnswerJsonFile($questions);
+        $questions = ControllerUtility::decodeAnswerJsonFile($questions);
         return view('admin.subject.show', compact('questions', 'subject'));
     }
 
-    private function decodeAnswerJsonFile($questions)
-    {
-        foreach ($questions as $question) {
-            $question->answer->incorrect = json_decode($question->answer->incorrect, true);
-        }
-        return $questions;
-    }
 
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Subject  $subject
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Subject $subject)
     {
         return view('admin.subject.edit', compact('subject'));

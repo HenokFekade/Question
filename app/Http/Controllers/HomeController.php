@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\User;
+use App\Utilities\ControllerUtility;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller

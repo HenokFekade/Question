@@ -14,7 +14,7 @@
       </div>
     </a>
     @foreach ($users as $user)
-      <a href="{{ route('user.deactivated.show', $user->user_name) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <a href="{{ route('show.deactivated.users', $user->user_name) }}" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{ $user->user_name }}</h5>
           <div class="float-right">

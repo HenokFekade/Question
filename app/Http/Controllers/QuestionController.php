@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Grade;
 use App\Question;
 use App\Subject;
+use App\Utilities\ControllerUtility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -22,10 +23,7 @@ class QuestionController extends Controller
     {
         $this->middleware('auth');
         if (Gate::allows('isAdvisor')) {
-
-            $grades = Grade::all();
-            $subjects = Subject::orderBy('name', 'asc')->get();
-            return view('advisor.question.create', compact('grades', 'subjects'));
+            return view('advisor.question.create');
         }
     }
 
@@ -77,10 +75,8 @@ class QuestionController extends Controller
     public function edit($question)
     {
         $question = Question::whereId($question)->with(['answer', 'explanation'])->get();
-        $grades = Grade::all();
-        $subjects = Subject::orderBy('name', 'asc')->get();
         $question = ControllerUtility::decodeAnswerJsonFile($question)[0];
-        return view('advisor.question.edit', compact('question', 'grades', 'subjects'));
+        return view('advisor.question.edit', compact('question'));
     }
 
 

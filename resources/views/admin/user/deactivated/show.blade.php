@@ -28,7 +28,7 @@
             </a>
 
         </div>
-          <a href="{{ route('user.activate', $user->user_name) }}" class="btn btn-success mt-3 mb-2"> Activate</a>
+          <a href="{{ route('activate.user', $user->user_name) }}" class="btn btn-success mt-3 mb-2"> Activate</a>
       </form>
 
         <br>

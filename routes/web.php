@@ -21,11 +21,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user/deactivated', 'UserController@deactivatedUsers')->name('user.deactivated.index');
+Route::get('/deactivated/user', 'UserController@deactivatedUsers')->name('deactivated.user.index');
 
-Route::get('/user/deactivated/{user_name}', 'UserController@showDeactivatedUser')->name('user.deactivated.show');
+Route::get('/deactivated/{user_name}', 'UserController@showDeactivatedUser')->name('show.deactivated.users');
 
-Route::get('/user/activate/{user_name}', 'UserController@activateUser')->name('user.activate');
+Route::get('/activate/{user_name}', 'UserController@activateUser')->name('activate.user');
 
 Route::resource('user', 'UserController');
 

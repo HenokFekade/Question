@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\User;
+use App\Utilities\ControllerUtility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -96,6 +97,6 @@ class UserController extends Controller
     {
         $user = User::withTrashed()->whereUserName($user_name)->first();
         $user->restore();
-        return redirect('/user/deactivated')->with('success', ucwords($user->user_name).' activated successfuly.');
+        return redirect('/deactivated/user')->with('success', ucwords($user->user_name).' activated successfuly.');
     }
 }
